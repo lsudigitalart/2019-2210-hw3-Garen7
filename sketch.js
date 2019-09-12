@@ -1,12 +1,14 @@
 function setup() {
   createCanvas(400, 400)
+  noStroke()
+  smooth()
 }
 
 var r = 256, g = 256, b = 256, loopNum = 0
 
 function draw(){
-  for(i = 0; i < 100; i += 1){
-    fill(random(r), random(g), random(b))
+  for(i = 0; i < 1000; i += 1){
+    fill(random(r), random(g), random(b), 150)
     circle(random(width), random(height), random(20))
   }
   if(loopNum < 25){
