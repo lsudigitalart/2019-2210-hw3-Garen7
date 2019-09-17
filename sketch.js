@@ -5,6 +5,7 @@ function setup() {
   createCanvas(innerWidth, innerHeight)
   noStroke()
   smooth()
+  textSize(24)
 }
 
 var r = 256, g = 256, b = 256, loopNum = 0
@@ -17,7 +18,7 @@ function draw(){
   }
   if(!mouseHasBeenPressed){
     fill(r, g, b)
-    text("Click and drag to draw", width/2-50, height/2)
+    text("Click and drag to draw", width/2-100, height/2)
   }
   
   //drawing the circles
