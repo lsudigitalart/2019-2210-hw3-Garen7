@@ -1,5 +1,8 @@
+const xSpread = 200, ySpread = 200
+mouseHasBeenPressed = false
+
 function setup() {
-  createCanvas(400, 400)
+  createCanvas(innerWidth, innerHeight)
   noStroke()
   smooth()
 }
@@ -7,10 +10,25 @@ function setup() {
 var r = 256, g = 256, b = 256, loopNum = 0
 
 function draw(){
-  for(i = 0; i < 1000; i += 1){
-    fill(random(r), random(g), random(b), 150)
-    circle(random(width), random(height), random(20))
+  //the starting prompt
+  if(mouseIsPressed && !mouseHasBeenPressed){
+    mouseHasBeenPressed = true
+    clear()
   }
+  if(!mouseHasBeenPressed){
+    fill(r, g, b)
+    text("Click and drag to draw", width/2-50, height/2)
+  }
+  
+  //drawing the circles
+  for(i = 0; i < 100; i += 1){
+    if(mouseIsPressed){
+      fill(random(r), random(g), random(b), 150)
+      circle((random(xSpread)+random(xSpread)+random(xSpread))/3-xSpread/2+mouseX, (random(ySpread)+random(ySpread)+random(ySpread))/3-ySpread/2+mouseY, random(20))
+    }
+  }
+  
+  //changing color
   if(loopNum < 25){
     r = loopNum%25*10, g = 256-loopNum%25*10, b = 256
   }
